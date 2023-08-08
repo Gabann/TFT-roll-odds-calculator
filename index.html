@@ -22,6 +22,7 @@
     <input type="number" id="player-level-number" min="3" max="10" value="3">
 
     <br>
+
     <h4>Unit cost</h4>
     <input type="range" min="1" max="5" value="1" class="slider" id="unit-cost-slider">
     <input type="number" id="unit-cost-number" min="1" max="5" value="1">
@@ -29,7 +30,7 @@
     <br>
 
     <h4>Number of copies out of the pool</h4>
-    <input type="number" id="copies-out-pool" min="0" value="0">
+    <input type="number" id="copies-out-pool" min="0" max="29" value="0">
 
     <h4>Number of same cost units out of the pool</h4>
     <input type="number" id="same-cost-out-pool" min="0" max="29" value="0">
@@ -43,6 +44,11 @@
     <div class="chart-container">
         <canvas id="probability-chart" role="img" aria-label="chart"></canvas>
     </div>
+
+    <footer>
+        <a href="https://github.com/Gabann/TFT-roll-odds-calculator">Source code</a>
+    </footer>
+
 
 </div>
 

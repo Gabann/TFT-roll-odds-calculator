@@ -1,26 +1,28 @@
-/*.cost-1 {*/
-/*	color: grey !important;*/
-/*}*/
-
-/*.cost-2 {*/
-/*	color: green !important;*/
-/*}*/
-
-/*.cost-3 {*/
-/*	color: blue !important;*/
-/*}*/
-
-/*.cost-4 {*/
-/*	color: purple !important;*/
-/*}*/
-
-/*.cost-5 {*/
-/*	color: orange !important;*/
-/*}*/
-
 .chart-container {
-	display: flex;
-	width: auto;
-	justify-content: center;
-	height: 50vh;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    height: 55vh;
+}
+
+.slider {
+    cursor: pointer;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    margin-right: 10px;
+    width: 150px;
+    height: 10px;
+    background: grey;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: cornflowerblue;
+    box-shadow: 0 0 2px 0 #555;
 }
