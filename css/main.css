@@ -1,0 +1,26 @@
+/*.cost-1 {*/
+/*	color: grey !important;*/
+/*}*/
+
+/*.cost-2 {*/
+/*	color: green !important;*/
+/*}*/
+
+/*.cost-3 {*/
+/*	color: blue !important;*/
+/*}*/
+
+/*.cost-4 {*/
+/*	color: purple !important;*/
+/*}*/
+
+/*.cost-5 {*/
+/*	color: orange !important;*/
+/*}*/
+
+.chart-container {
+	display: flex;
+	width: auto;
+	justify-content: center;
+	height: 50vh;
+}
