@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <meta name="theme-color" content="#fafafa">
 </head>
@@ -17,28 +18,33 @@
 
 <div class="container">
 
-    <h4>Player level</h4>
+    <h4><label for="player-level-slider">Player level</label></h4>
     <input type="range" min="3" max="10" value="3" class="slider" id="player-level-slider">
+
+    <label for="player-level-number"></label>
     <input type="number" id="player-level-number" min="3" max="10" value="3">
 
     <br>
 
-    <h4>Unit cost</h4>
+    <h4><label for="unit-cost-slider">Unit cost</label></h4>
     <input type="range" min="1" max="5" value="1" class="slider" id="unit-cost-slider">
-    <input type="number" id="unit-cost-number" min="1" max="5" value="1">
+
+    <label for="unit-cost-number"></label><input type="number" id="unit-cost-number" min="1" max="5" value="1">
 
     <br>
 
-    <h4>Number of copies out of the pool</h4>
+    <h4><label for="copies-out-pool">Number of copies out of the pool</label></h4>
     <input type="number" id="copies-out-pool" min="0" max="29" value="0">
 
-    <h4>Number of same cost units out of the pool</h4>
+    <h4><label for="same-cost-out-pool">Number of same cost units out of the pool</label></h4>
+
     <input type="number" id="same-cost-out-pool" min="0" max="29" value="0">
 
-    <h4>How many golds to roll (Huge numbers may crash navigator tab)</h4>
+    <h4><label for="golds-to-roll">How many golds to roll (Huge numbers may crash navigator tab)</label></h4>
+
     <input type="number" id="golds-to-roll" min="2" max="1000" value="50">
 
-    <h4>How many simulation to run (Huge numbers may crash navigator tab)</h4>
+    <h4><label for="simulations-to-run">How many simulation to run (Huge numbers may crash navigator tab)</label></h4>
     <input type="number" id="simulations-to-run" min="1" max="10000" value="200">
 
     <div class="chart-container">
@@ -52,7 +58,7 @@
 
 </div>
 
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="js/chart.js/dist/chart.umd.js"></script>
 
 <script type="module" src="js/probabilityChart.js"></script>
