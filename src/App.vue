@@ -1,9 +1,11 @@
 <script setup>
+import FooterComponent from "./components/footerComponent.vue";
+import HeaderComponent from "./components/headerComponent.vue";
 import Calculator from "./views/Calculator.vue";
 </script>
 
 <template>
-	<!--	<header-component class="header"></header-component>-->
+	<HeaderComponent class="header"></HeaderComponent>
 
 	<div class="container-fluid">
 
@@ -17,7 +19,7 @@ import Calculator from "./views/Calculator.vue";
 
 	</div>
 
-	<!--	<footer-component class="footer"></footer-component>-->
+	<FooterComponent class="footer"></FooterComponent>
 </template>
 
 <style>
@@ -32,6 +34,8 @@ import Calculator from "./views/Calculator.vue";
 
 .container-fluid {
 	min-height: calc(100vh - var(--header-height) - var(--footer-height));
+	padding-bottom: 15px;
+	padding-top: 15px;
 }
 
 .footer {

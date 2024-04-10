@@ -10,9 +10,7 @@
 
 <style scoped>
 footer {
-	background-color: var(--main-color);
-	height: 7vh;
+	/*	background-color: var(--main-color);*/
 	padding: 0 30px 0 30px;
-	margin-top: 15px;
 }
 </style>

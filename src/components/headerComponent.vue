@@ -3,14 +3,14 @@
 </script>
 
 <template>
+	<header class="d-flex align-items-center">
 
+	</header>
 </template>
 
 <style scoped>
 header {
-	height: 8vh;
-	background-color: var(--main-color);
+	/*	background-color: var(--main-color);*/
 	padding: 0 30px 0 30px;
-	margin-bottom: 15px;
 }
 </style>

@@ -7,6 +7,47 @@ let rollSimulatorStore = useRollSimulatorStore();
 
 let chart: Chart;
 
+let desiredCost: Ref<number> = ref(1);
+let playerLevel: Ref<number> = ref(4);
+let copiesOutPool: Ref<number> = ref(0);
+let sameCostOutPool: Ref<number> = ref(0);
+let goldsToRoll: Ref<number> = ref(50);
+let simulationsCount: Ref<number> = ref(100);
+
+function UpdateChart(): void {
+	let odds = rollSimulatorStore.simulateRolldown(simulationsCount.value, goldsToRoll.value, playerLevel.value, desiredCost.value, copiesOutPool.value, sameCostOutPool.value);
+
+	chart.data.datasets = [{
+		label: 'Chance to get at least x units',
+		data: odds
+	}]
+	chart.update();
+}
+
+watch(playerLevel, (newValue, oldValue) => {
+	UpdateChart();
+});
+
+watch(desiredCost, (newValue, oldValue) => {
+	UpdateChart();
+});
+
+watch(copiesOutPool, (newValue, oldValue) => {
+	UpdateChart();
+});
+
+watch(sameCostOutPool, (newValue, oldValue) => {
+	UpdateChart();
+});
+
+watch(goldsToRoll, (newValue, oldValue) => {
+	UpdateChart();
+});
+
+watch(simulationsCount, (newValue, oldValue) => {
+	UpdateChart();
+});
+
 onMounted(() => {
 	const chartCanvas = document.getElementById("probability-chart");
 
@@ -30,81 +71,37 @@ onMounted(() => {
 
 	UpdateChart();
 });
-
-let cost: Ref<number> = ref(1);
-let lvl: Ref<number> = ref(3);
-let copies: Ref<number> = ref(0);
-let pool: Ref<number> = ref(0);
-let golds: Ref<number> = ref(50);
-let simulations: Ref<number> = ref(200);
-
-watch(lvl, (newValue, oldValue) => {
-	UpdateChart();
-});
-
-watch(cost, (newValue, oldValue) => {
-	UpdateChart();
-});
-
-watch(copies, (newValue, oldValue) => {
-	UpdateChart();
-});
-
-watch(pool, (newValue, oldValue) => {
-	UpdateChart();
-});
-
-watch(golds, (newValue, oldValue) => {
-	UpdateChart();
-});
-
-watch(simulations, (newValue, oldValue) => {
-	UpdateChart();
-});
-
-function UpdateChart(): void {
-
-
-	let odds = rollSimulatorStore.simulateRolldown(simulations.value, golds.value, lvl.value, cost.value, copies.value, pool.value);
-
-	chart.data.datasets = [{
-		label: 'Chance to get at least x units',
-		data: odds
-	}]
-	chart.update();
-}
-
 </script>
 
 <template>
 	<div class="container">
 		<h4><label for="player-level-slider">Player level</label></h4>
-		<input id="player-level-slider" v-model="lvl" class="slider" max="10" min="3" type="range">
+		<input id="player-level-slider" v-model.number="playerLevel" class="slider" max="10" min="3" type="range">
 
-		<input id="player-level-number" v-model="lvl" max="10" min="3" type="number" value="3">
+		<input id="player-level-number" v-model="playerLevel" max="10" min="3" type="number">
 
 		<br>
 
-		<h4><label for="unit-cost-slider">Unit cost</label></h4>
-		<input id="unit-cost-slider" v-model="cost" class="slider" max="5" min="1" type="range">
-		
-		<input id="unit-cost-number" v-model="cost" max="5" min="1" type="number" value="1">
+		<h4><label for="unit-cost-slider">Unit desired cost</label></h4>
+		<input id="unit-cost-slider" v-model.number="desiredCost" class="slider" max="5" min="1" type="range">
+
+		<input id="unit-cost-number" v-model="desiredCost" max="5" min="1" type="number">
 
 		<br>
 
 		<h4><label for="copies-out-pool">Number of copies out of the pool</label></h4>
-		<input id="copies-out-pool" v-model="copies" max="29" min="0" type="number" value="0">
+		<input id="copies-out-pool" v-model="copiesOutPool" max="29" min="0" type="number" value="0">
 
-		<h4><label for="same-cost-out-pool">Number of same cost units out of the pool</label></h4>
+		<h4><label for="same-cost-out-pool">Number of same same cost units out of the pool</label></h4>
 
-		<input id="same-cost-out-pool" v-model="pool" max="29" min="0" type="number" value="0">
+		<input id="same-cost-out-pool" v-model="sameCostOutPool" max="29" min="0" type="number" value="0">
 
 		<h4><label for="golds-to-roll">How many golds to roll (Huge numbers may crash navigator tab)</label></h4>
 
-		<input id="golds-to-roll" v-model="golds" max="1000" min="2" type="number" value="50">
+		<input id="golds-to-roll" v-model="goldsToRoll" max="1000" min="2" type="number" value="50">
 
 		<h4><label for="simulations-to-run">How many simulation to run (Huge numbers may crash navigator tab)</label></h4>
-		<input id="simulations-to-run" v-model="simulations" max="10000" min="1" type="number" value="200">
+		<input id="simulations-to-run" v-model="simulationsCount" max="10000" min="1" type="number" value="200">
 
 		<div class="chart-container">
 			<canvas id="probability-chart" aria-label="chart"/>
