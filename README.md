@@ -13,7 +13,7 @@
 
 <div align="center">
   <p>
-    A webapp for the game <a href="teamfighttactics.leagueoflegends.com/">TFT</a> that simulate rolling units and sgives the odds to hit 
+    A webapp for the game <a href="https://teamfighttactics.leagueoflegends.com/">TFT</a> that simulate rolling units and sgives the odds to hit 
 a desired unit
     <br />
     <a href="https://github.com/Gabann/TFT-roll-odds-calculator/tree/main/documentation"><strong>Explore the docs »</strong></a>
@@ -57,7 +57,7 @@ a desired unit
 
 This app is not base on math to run, it's a simulation of x rolldown and returns the percentage to hit a n number of the given unit
 
-The app is available [Here](https://apidex.gaban.fr)
+The app is available [Here](https://tft-roll-calculator.gaban.fr/)
 
 ### Features
 
