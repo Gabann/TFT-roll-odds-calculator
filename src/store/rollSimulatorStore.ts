@@ -1,6 +1,6 @@
-﻿import {defineStore} from "pinia";
+﻿import {defineStore} from 'pinia';
 
-const unitsPoolSize: number[] = [22, 20, 17, 10, 9];
+const unitsPoolSize: number[] = [30, 25, 18, 10, 9];
 const distinctUnits: number[] = [13, 13, 13, 12, 8];
 const rollProbabilitiesPerLevel: number[][] = [
 	[1, 0, 0, 0, 0],
@@ -9,9 +9,9 @@ const rollProbabilitiesPerLevel: number[][] = [
 	[0.55, 0.30, 0.15, 0, 0],
 	[0.45, 0.33, 0.20, 0.02, 0],
 	[0.30, 0.40, 0.25, 0.05, 0],
-	[0.19, 0.35, 0.35, 0.10, 0.01],
-	[0.18, 0.25, 0.36, 0.18, 0.03],
-	[0.10, 0.20, 0.25, 0.35, 0.10],
+	[0.19, 0.30, 0.40, 0.10, 0.01],
+	[0.18, 0.27, 0.32, 0.20, 0.03],
+	[0.15, 0.20, 0.25, 0.30, 0.10],
 	[0.05, 0.10, 0.20, 0.40, 0.25],
 ];
 
@@ -90,9 +90,7 @@ export const useRollSimulatorStore = defineStore('rollSimulator', () => {
 			numberOfCopiesFoundPerRolldown.push(rollDown());
 		}
 
-		let probabilitiesArray = numberOfCopiesFoundPerRolldown.map((copies, i) => (1 - (numberOfCopiesFoundPerRolldown.filter(x => x <= i).length) / numberOfSimulations) * 100);
-
-		return probabilitiesArray;
+        return numberOfCopiesFoundPerRolldown.map((copies, i) => (1 - (numberOfCopiesFoundPerRolldown.filter(x => x <= i).length) / numberOfSimulations) * 100);
 	}
 
 	return {
